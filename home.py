@@ -1,14 +1,12 @@
 class House:
-    def __init__(self):
-        self.numberOfFloors = 0
+    def __init__(self, numberOfFloors=10):
+        self.numberOfFloors = numberOfFloors
 
-    def setNewNumberOfFloors(self, floors):
-        self.numberOfFloors = floors
-        print("Количество этажей:", self.numberOfFloors)
+    def printFloors(self):
+        for floor in range(1, self.numberOfFloors + 1):
+            print("Текущий этаж равен", floor)
 
 
-# Создаем экземпляр класса House
 myHouse = House()
 
-# Изменяем количество этажей и выводим в консоль
-myHouse.setNewNumberOfFloors(5)
+myHouse.printFloors()
