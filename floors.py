@@ -7,8 +7,6 @@ class House:
         print("Количество этажей:", self.numberOfFloors)
 
 
-# Создаем экземпляр класса House
 myHouse = House()
 
-# Изменяем количество этажей и выводим в консоль
-myHouse.setNewNumberOfFloors(5)
+myHouse.setNewNumberOfFloors(9)
