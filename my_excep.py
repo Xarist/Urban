@@ -16,8 +16,10 @@ def generate_exception(data):
 
     except InvalidDataException as exc:
         print("Обработка InvalidDataException:", exc)
+        # raise
     except ProcessingException as exc:
         print("Обработка ProcessingException:", exc)
+        # raise
 
     else:
         print("Действия, выполняемые при отсутствии исключений")

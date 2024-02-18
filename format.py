@@ -6,7 +6,6 @@ print('В команде %s участников: %s !' % (team1_name, team1_num
 print('В команде %s участников: %s !' % (team2_name, team2_num))
 print('Итого сегодня в командах участников %s и %s, а всего %s!' % (team1_num, team2_num, team1_num + team2_num))
 
-
 # Использование format():
 team1_score, team2_score = int(input()), int(input())
 team1_time, team2_time = float(input()), float(input())
@@ -14,7 +13,6 @@ print('Команда {0} решила задач: {1} !'.format(team1_name, tea
 print('Команда {0} решила задач: {1} !'.format(team2_name, team2_score))
 print('{0} решили задачи за {1} c !'.format(team1_name, team1_time))
 print('{0} решили задачи за {1} c !'.format(team2_name, team2_time))
-
 
 # Использование f-строк:
 print(f'Команды решили {team1_score} и {team2_score}, а всего было решено {team1_score + team2_score} задач!')
