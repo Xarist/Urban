@@ -6,12 +6,12 @@ class ProcessingException(Exception):
     pass
 
 
-def generate_exception(data):
+def generate_exception(some_data):
     try:
-        if not data:
+        if not some_data:
             raise InvalidDataException("Данные не переданы")
 
-        if len(data) < 5:
+        if len(some_data) < 5:
             raise ProcessingException("Обработка данных не удалась!")
 
     except InvalidDataException as exc:
