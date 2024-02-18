@@ -13,7 +13,7 @@ def division(a, b):
 print('Фильтр установлен в "always"')
 warnings.simplefilter("always")
 print(division(6, 0.001))
-print('\n')
+print()
 
 print('Фильтр установлен в "ignore"')
 warnings.simplefilter("ignore")
