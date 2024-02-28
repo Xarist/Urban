@@ -4,5 +4,5 @@ def all_variants(text):
             yield text[j:j + i]
 
 
-for substr in all_variants('abc'):
-    print(substr)
+for i in all_variants('abc'):
+    print(i)
