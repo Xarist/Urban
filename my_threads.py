@@ -9,7 +9,7 @@ def show_el(*my_list):
 
 
 nums_list = [i for i in range(1, 11)]
-alph_list = [chr(i) for i in range(97, 123)]
+alph_list = [chr(i) for i in range(97, 107)]
 
 thread_nums = Thread(target=show_el, args=nums_list)
 thread_alph = Thread(target=show_el, args=alph_list)
