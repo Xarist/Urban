@@ -4,7 +4,7 @@ from time import sleep
 
 def show_el(*my_list):
     for el in my_list:
-        print(el)
+        print(el, flush=True)
         sleep(1)
 
 
