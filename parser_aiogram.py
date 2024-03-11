@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import os
 
 url = 'https://docs.aiogram.dev/en/latest/api/bot.html'
 response = requests.get(url)
@@ -19,10 +20,11 @@ for link in links:
     href = link.get('href')
     full_url = urljoin(url, href)
     links_dict[title] = full_url
-count = 0
-for k, v in links_dict.items():
-    count += 1
-    print(f'Страница №{count} {k} - адресс {v}')
+
+# count = 0
+# for k, v in links_dict.items():
+#     count += 1
+#     print(f'Страница №{count} {k} - адресс {v}')
 
 with open('links_data.txt', 'w', encoding='UTF-8') as file:
     count = 0
@@ -31,4 +33,28 @@ with open('links_data.txt', 'w', encoding='UTF-8') as file:
         file.write(f'Страница №{count} {key} имеет адрес {value}\n')
 
 print('Данные успешно записаны в файл links_data.txt')
-# print(links_dict)
+
+# Создаем папку data_files, если она еще не существует
+if not os.path.exists('data_files'):
+    os.makedirs('data_files')
+
+for title, url in links_dict.items():
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    content_div = soup.find('div', class_='content')
+    if content_div:
+        text_content = content_div.get_text()
+
+        # Очищаем название страницы от недопустимых символов
+        clean_title = title.replace("(", "").replace(")", "").replace(">", "").replace("<", "").replace("?", "_")
+
+        file_path = os.path.join('data_files', f'{clean_title}_content.txt')
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.write(text_content)
+
+        print(f'Текст с {title} успешно сохранен в файл {file_path}')
+    else:
+        print(f'На странице {url} не найден элемент <div class=\'content\'>')
+
+print('Процесс завершен.')
