@@ -42,14 +42,14 @@ for title, url in links_dict.items():
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    content_div = soup.find('div', class_='content')
-    if content_div:
-        text_content = content_div.get_text()
+    article_main = soup.find('article', role='main')
+    if article_main:
+        text_content = article_main.get_text()
 
         # Очищаем название страницы от недопустимых символов
         clean_title = title.replace("(", "").replace(")", "").replace(">", "").replace("<", "").replace("?", "_")
 
-        file_path = os.path.join('data_files', f'{clean_title}_content.txt')
+        file_path = os.path.join('data_files', f'{clean_title}.txt')
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(text_content)
 
