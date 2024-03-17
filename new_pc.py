@@ -1,1 +1,1 @@
-print('new_pc')
+print('this_new_pc')
