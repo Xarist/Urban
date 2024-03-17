@@ -4,7 +4,8 @@ from threading import Thread
 
 class Knight(Thread):
     def __init__(self, name, skill):
-        Thread.__init__(self)
+        super(Knight, self).__init__()
+        # Thread.__init__(self)
         self.name = name
         self.skill = skill
 
@@ -16,7 +17,7 @@ class Knight(Thread):
             count += 1
             enimies -= self.skill
             print(f'{self.name} сражается {count} день(дня)... Осталось {enimies} врагов', flush=True)
-            sleep(1)
+            # sleep(1)
         print(f'{self.name} одержал победу за {count} дней(дня)!', flush=True)
 
 
